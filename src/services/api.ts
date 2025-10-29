@@ -221,9 +221,6 @@ export class HealthMonitoringAPI {
       recommendations.push('Continue regular cardiovascular exercise');
       recommendations.push('Maintain balanced diet and adequate hydration');
       recommendations.push('Regular health checkups recommended');
-      if (avgHeartRate < 70) {
-        anomalies.push('Excellent cardiovascular fitness indicators detected');
-      }
     } else {
       if (avgHeartRate < 60) {
         riskLevel = 'medium';
