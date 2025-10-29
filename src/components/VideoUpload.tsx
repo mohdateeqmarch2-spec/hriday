@@ -12,7 +12,7 @@ export function VideoUpload({ onFileSelect }: VideoUploadProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const validateFile = (file: File): boolean => {
-    const maxSize = 100 * 1024 * 1024;
+    const maxSize = 2 * 1024 * 1024 * 1024;
     const validTypes = ['video/mp4', 'video/webm', 'video/quicktime', 'video/x-msvideo'];
 
     if (!validTypes.includes(file.type) && !file.name.match(/\.(mp4|webm|mov|avi)$/i)) {
@@ -21,7 +21,7 @@ export function VideoUpload({ onFileSelect }: VideoUploadProps) {
     }
 
     if (file.size > maxSize) {
-      setError('Video file must be less than 100MB');
+      setError('Video file must be less than 2GB');
       return false;
     }
 
@@ -137,7 +137,7 @@ export function VideoUpload({ onFileSelect }: VideoUploadProps) {
                   <span>Select Video</span>
                 </button>
                 <p className="text-xs text-gray-500 mt-2">
-                  Supported formats: MP4, WebM, MOV, AVI (Max 100MB)
+                  Supported formats: MP4, WebM, MOV, AVI (Max 2GB)
                 </p>
               </div>
             )}
